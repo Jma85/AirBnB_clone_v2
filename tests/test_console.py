@@ -1,4 +1,4 @@
-t test module for the console (command interpreter).
+""" test module for the console (command interpreter).
 """
 import json
 import MySQLdb
