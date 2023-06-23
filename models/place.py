@@ -17,6 +17,17 @@ from sqlalchemy.ext.declarative import declarative_base
 from os import getenv
 import models
 
+<<<<<<< HEAD
+=======
+
+association_table = Table("place_amenity", Base.metadata,
+                          Column("place_id", String(60),
+                                 ForeignKey("places.id"),
+                                 primary_key=True, nullable=False),
+                          Column("amenity_id", String(60),
+                                 ForeignKey("amenities.id"),
+                                 primary_key=True, nullable=False))
+>>>>>>> 0e44d446eca646eddd5ed11387a6fbdb5fb2af75
 
 association_table = Table("place_amenity", Base.metadata,
                           Column("place_id", String(60),
@@ -26,10 +37,33 @@ association_table = Table("place_amenity", Base.metadata,
                                  ForeignKey("amenities.id"),
                                  primary_key=True, nullable=False))
 
+<<<<<<< HEAD
 
 class Place(BaseModel, Base):
     """Represents a Place for a MySQL database.
     Inherits from SQLAlchemy Base and links to the MySQL table places
+=======
+class Place(BaseModel, Base):
+    """Represents a Place for a MySQL database.
+
+    Inherits from SQLAlchemy Base and links to the MySQL table places.
+
+    Attributes:
+        __tablename__ (str): The name of the MySQL table to store places.
+        city_id (sqlalchemy String): The place's city id.
+        user_id (sqlalchemy String): The place's user id.
+        name (sqlalchemy String): The name.
+        description (sqlalchemy String): The description.
+        number_rooms (sqlalchemy Integer): The number of rooms.
+        number_bathrooms (sqlalchemy Integer): The number of bathrooms.
+        max_guest (sqlalchemy Integer): The maximum number of guests.
+        price_by_night (sqlalchemy Integer): The price by night.
+        latitude (sqlalchemy Float): The place's latitude.
+        longitude (sqlalchemy Float): The place's longitude.
+        reviews (sqlalchemy relationship): The Place-Review relationship.
+        amenities (sqlalchemy relationship): The Place-Amenity relationship.
+        amenity_ids (list): An id list of all linked amenities.
+>>>>>>> 0e44d446eca646eddd5ed11387a6fbdb5fb2af75
     """
     __tablename__ = "places"
     city_id = Column(String(60), ForeignKey("cities.id"), nullable=False)
